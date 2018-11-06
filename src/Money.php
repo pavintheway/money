@@ -75,10 +75,6 @@ class Money implements Serializable, JsonSerializable
      */
     public function __construct($amount, Currency $currency)
     {
-        if (is_int($amount)) {
-            $amount = $amount / 100;
-        }
-
         $stringAmount = $this->castValueToString($amount);
 
         $this->currency = $currency;
