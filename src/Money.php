@@ -9,7 +9,6 @@
  * identical, functionality is extended with additional methods
  * and parameters.
  *
- *
  * Copyright (c) 2015 Łukasz Biały
  *
  * For the full copyright and license information, please view the
@@ -230,7 +229,7 @@ class Money implements Serializable, JsonSerializable
      * Compatibility with Verraes' Money
      *
      * @deprecated Use getAmount() instead
-     * @return int
+     * @return     int
      */
     public function getUnits()
     {
@@ -300,9 +299,9 @@ class Money implements Serializable, JsonSerializable
      * Multiplying compatible with Verraes' Money
      * To use GAAP precision rounding, pass true as third argument
      *
-     * @param      $operand
-     * @param int  $roundingMode
-     * @param bool $useGaapPrecision
+     * @param $operand
+     * @param int     $roundingMode
+     * @param bool    $useGaapPrecision
      *
      * @return \Keios\MoneyRight\Money
      * @throws \Keios\MoneyRight\Exceptions\InvalidArgumentException
@@ -334,9 +333,9 @@ class Money implements Serializable, JsonSerializable
      * Division compatible with Verraes' Money
      * To use GAAP precision rounding, pass true as third argument
      *
-     * @param      $operand
-     * @param int  $roundingMode
-     * @param bool $useGaapPrecision
+     * @param $operand
+     * @param int     $roundingMode
+     * @param bool    $useGaapPrecision
      *
      * @return \Keios\MoneyRight\Money
      * @throws \Keios\MoneyRight\Exceptions\InvalidArgumentException
@@ -369,7 +368,7 @@ class Money implements Serializable, JsonSerializable
      * Allocation is compatible with Verraes' Money
      * To use GAAP precision rounding, pass true as second argument
      *
-     * @param array $ratios List of ratio's
+     * @param array $ratios           List of ratio's
      * @param bool  $useGaapPrecision
      *
      * @return array
@@ -607,5 +606,10 @@ class Money implements Serializable, JsonSerializable
         new Money($string, new Currency('USD')); // TODO optimize?
 
         return (int)bcmul($string, '100', self::GAAP_PRECISION);
+    }
+
+    public function __toString()
+    {
+        return $this->getAmountBasic();
     }
 }
