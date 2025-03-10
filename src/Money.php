@@ -30,7 +30,7 @@ class Money implements Serializable, JsonSerializable
     /**
      * @const
      */
-    const GAAP_PRECISION = 4;
+    const GAAP_PRECISION = 6;
 
     /**
      * @const
